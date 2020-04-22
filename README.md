@@ -1,5 +1,7 @@
 ## Gatsby-js & Contentful Backend
 
+### View [demo](https://gatsby-contentful-template.netlify.app/)
+
 ##### Using contentful as a backend, creating content models with fields and adding content and images.
 
 Fetching data from the contentful API using Gatsby js and graphQL.
