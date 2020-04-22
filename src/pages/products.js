@@ -1,35 +1,10 @@
-## Gatsby-js & Contentful Backend
+// CONTENTFUL API REQUESTS EXAMPLES
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Image from "gatsby-image"
+import { Link } from "gatsby"
 
-##### Using contentful as a backend, creating content models with fields and adding content and images.
-
-Fetching data from the contentful API using Gatsby js and graphQL.
-
-```javascript
-// QUERY PRODUCTS FORM CONTENTFUL API
-export const query = graphql`
-  {
-    allContentfulProduct {
-      nodes {
-        id
-        price
-        title
-        slug
-        image {
-          fluid {
-            ...GatsbyContentfulFluid
-          }
-        }
-      }
-    }
-  }
-`
-```
-
-### Display and render the graphQL query
-
-Using JavaScript to destructor ({}) the data and nodes then using map() to cycle through the array to display the list of products.
-
-```javascript
 const ProductComponent = ({ data }) => {
   // destructor the nodes array and store in products variable
   const {
@@ -40,7 +15,6 @@ const ProductComponent = ({ data }) => {
   return (
     <Layout>
       <section className="ProductComponent">
-        // map through the array
         {products.map(product => {
           return (
             <article className="ProductContainer" key={product.id}>
@@ -60,4 +34,23 @@ const ProductComponent = ({ data }) => {
     </Layout>
   )
 }
-```
+// QUERY PRODUCTS FORM CONTENTFUL API
+export const query = graphql`
+  {
+    allContentfulProduct {
+      nodes {
+        id
+        price
+        title
+        slug
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+export default ProductComponent
